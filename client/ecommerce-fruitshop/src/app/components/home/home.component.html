@@ -1,0 +1,24 @@
+<mat-card color="primary" *ngFor="let item of fruits | keyvalue" class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{item.key}}</mat-card-title>
+    <mat-card-subtitle>Avaliable Qty : {{item?.value?.quantity}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    {{item?.value?.purchaseQty}}
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="add(item)" mat-icon-button>
+      <mat-icon>add_circle</mat-icon>
+    </button>
+    <button (click)="remove(item)" mat-icon-button>
+      <mat-icon>remove_circle</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+
+<div class="submit" *ngIf="showButton">
+  <button (click)="purchase()" mat-raised-button color="primary"> Purchase </button>
+</div>
+
+<!-- end -->
